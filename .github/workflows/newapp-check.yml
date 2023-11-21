@@ -9,11 +9,11 @@ on:
         description: "Create GitHub issue"
         required: false
         type: boolean
-        default: false
+        default: true
 
 jobs:
   status_check:
-    if: github.repository == 'nikhilbadyal/docker-py-revanced'
+    if: github.repository == 'crstian19/docker-py-revanced'
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
