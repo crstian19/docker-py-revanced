@@ -51,10 +51,12 @@ jobs:
 
       - name: Create Issue Action
         if: inputs.CREATE_ISSUE
-        uses: nashmaniac/create-issue-action@v1.2
+        uses: actions/checkout@v3
+        uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           title: Revanced apps Status
-          token: ${{secrets.GITHUB_TOKEN}}
           assignees: ${{ github.repository_owner }}
           labels: 💁‍new-app
           body: ${{ steps.status.outputs.changelog }}
