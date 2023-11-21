@@ -7,3 +7,4 @@ loguru==0.7.2
 pre-commit==3.5.0
 requests==2.31.0
 tqdm==4.66.1
+urllib3
