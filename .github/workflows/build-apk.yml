@@ -56,7 +56,7 @@ on:
         description: "Upload Non Rooted APKs to Telegram"
         required: false
         type: boolean
-        default: false
+        default: true
       TELEGRAM_ROOT_UPLOAD:
         description: "Upload Magisk Module from nikhilbadyal/revanced-magisk-module to Telegram"
         required: false
@@ -66,12 +66,12 @@ on:
         description: "Use Apprise to Notify"
         required: false
         type: boolean
-        default: false
+        default: true
       CLEANUP:
         description: "Clear GitHub(Useful if Telegram upload is enabled)"
         required: false
         type: boolean
-        default: false
+        default: true
       COMMIT_CHANGELOG:
         description: "Update Changelog"
         type: boolean
