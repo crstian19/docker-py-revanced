@@ -52,6 +52,7 @@ jobs:
           path: status.md
           if-no-files-found: error
 
+<<<<<<< HEAD
       - name: Update or Create Revanced Status Issue
         uses: actions/github-script@v7.0.1
         with:
@@ -110,3 +111,16 @@ jobs:
 
               console.log(`Created new issue #${newIssue.data.number}: ${issueTitle}`);
             }
+=======
+      - name: Create Issue Action
+        if: inputs.CREATE_ISSUE
+        uses: actions/checkout@v3
+        uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: Revanced apps Status
+          assignees: ${{ github.repository_owner }}
+          labels: 💁‍new-app
+          body: ${{ steps.status.outputs.changelog }}
+>>>>>>> 78bab6b (Update check app)
