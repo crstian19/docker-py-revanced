@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   status_check:
-    if: github.repository == 'nikhilbadyal/docker-py-revanced'
+    if: github.repository == 'crstian19/docker-py-revanced'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
