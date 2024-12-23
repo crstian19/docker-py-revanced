@@ -10,7 +10,7 @@ on:
         description: "Upload Non Rooted APKs to Telegram"
         required: false
         type: boolean
-        default: true
+        default: false
       TELEGRAM_ROOT_UPLOAD:
         description: "Upload Magisk Module from nikhilbadyal/revanced-magisk-module to Telegram"
         required: false
@@ -64,5 +64,5 @@ jobs:
       group: Auto-Release-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
     with:
-      TELEGRAM_NO_ROOT_UPLOAD: true
+      TELEGRAM_NO_ROOT_UPLOAD: false
       PREFERRED_PATCH_APPS: ${{ needs.release-check.outputs.SHOULD_BUILD }}
