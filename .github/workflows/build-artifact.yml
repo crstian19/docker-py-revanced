@@ -48,7 +48,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@main
         with:
-          python-version: '3.12.3'
+          python-version: '3.13.3'
 
       - name: Install Requirements
         if: ${{ inputs.PREFERRED_PATCH_APPS }}
