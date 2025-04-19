@@ -1,1 +1,20 @@
-{}
+{
+    "REAndroid/APKEditor": {
+        "ResourceName": "[REAndroid/APKEditor](https://github.com/REAndroid/APKEditor/releases/tag/V1.4.2)",
+        "Version": "V1.4.2",
+        "Changelog": "## What's Changed\r\n* NEW: Using internal dex library.\r\n* Full support dex files upto version 042 (_for more see help by running `java -jar APKEditor.jar d -h`_ ).\r\n* Translation into Arabic by @Kirlif in https://github.com/REAndroid/APKEditor/pull/142\r\n* Fix: Consolidate JSON Info output into a single object by @AbhiTheModder in https://github.com/REAndroid/APKEditor/pull/149\r\n\r\n## New Contributors\r\n* @AbhiTheModder made their first contribution in https://github.com/REAndroid/APKEditor/pull/149\r\n\r\n**Full Changelog**: https://github.com/REAndroid/APKEditor/compare/V1.4.1...V1.4.2",
+        "PublishedOn": "2025-01-21T20:16:10Z"
+    },
+    "revanced/revanced-cli": {
+        "ResourceName": "[revanced/revanced-cli](https://github.com/ReVanced/revanced-cli/releases/tag/v5.0.1)",
+        "Version": "v5.0.1",
+        "Changelog": "## [5.0.1](https://github.com/ReVanced/revanced-cli/compare/v5.0.0...v5.0.1) (2025-04-14)\n\n\n### Bug Fixes\n\n* Make mounting work again by bumping dependencies ([#359](https://github.com/ReVanced/revanced-cli/issues/359)) ([68a4872](https://github.com/ReVanced/revanced-cli/commit/68a48724ebf01a0c8f8adc0fec63037bff672dc9))\n\n\n\n",
+        "PublishedOn": "2025-04-14T08:53:52Z"
+    },
+    "revanced/revanced-patches": {
+        "ResourceName": "[revanced/revanced-patches](https://github.com/ReVanced/revanced-patches/releases/tag/v5.20.1)",
+        "Version": "v5.20.1",
+        "Changelog": "## [5.20.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.0...v5.20.1) (2025-04-15)\n\n\n### Bug Fixes\n\n* **Spotify - Custom theme:** Support latest app target ([#4800](https://github.com/ReVanced/revanced-patches/issues/4800)) ([03d0eb2](https://github.com/ReVanced/revanced-patches/commit/03d0eb2f8c0f3e48d53bdab38d34057f2020bb65))\n\n\n\n",
+        "PublishedOn": "2025-04-15T16:43:30Z"
+    }
+}
