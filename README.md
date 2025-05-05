@@ -223,6 +223,7 @@ You can use any of the following methods to build.
     - [soundcloud](https://www.apkmirror.com/apk/soundcloud/soundcloud-soundcloud/)
     - [stocard](https://www.apkmirror.com/apk/stocard-gmbh/stocard-rewards-cards-wallet/)
     - [willhaben](https://www.apkmirror.com/apk/willhaben/willhaben/)
+    - [proton-mail](https://www.apkmirror.com/apk/proton-technologies-ag/protonmail-encrypted-email/)
 
     <br>`**` - You can also patch any other app which is **not** supported officially.To do so, you need to provide
    few more inputs to the tool which are mentioned below. These config will override the sources config from the tool.
@@ -250,6 +251,10 @@ You can use any of the following methods to build.
    6. Google Drive - Supports downloading from Google Drive lint
        1. Link Format - https://drive.google.com/uc?<id>
        2. Example Link - https://drive.google.com/uc?id=1ad44UTghbDty8o36Nrp3ZMyUzkPckIqY
+   7. APKEEP - Support downloading using [APKEEP](https://github.com/EFForg/apkeep)
+      1. Link Format - apkeep
+      2. Example Link - apkeep
+      Note - You need to provide APKEEP_EMAIL and APKEEP_TOKEN in the **DOCKER_PY_REVANCED_SECRETS** Github Secrets.
 
    <br>Please verify the source of original APKs yourself with links provided. I'm not responsible for any damage
     caused.If you know any better/safe source to download clean. Open a discussion.
