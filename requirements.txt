@@ -1,7 +1,7 @@
 beautifulsoup4==4.13.4
 environs==14.1.1
 google-play-scraper==1.2.7
-lastversion==3.5.7
+lastversion==3.5.8
 loguru==0.7.3
 packaging==24.2
 pre-commit==4.2.0
