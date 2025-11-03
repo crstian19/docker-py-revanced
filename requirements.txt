@@ -1,5 +1,5 @@
 beautifulsoup4==4.13.4
-environs==14.1.1
+environs==14.5.0
 google-play-scraper==1.2.7
 lastversion==3.5.7
 loguru==0.7.3
