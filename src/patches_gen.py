@@ -6,6 +6,8 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
+from src.cli_args import DEFAULT_LIST_PATCHES_ARGS, append_cli_argument
+
 
 def extract_name_from_section(section: str) -> str | None:
     """Extract the name from a section."""
@@ -27,10 +29,10 @@ def extract_enabled_state_from_section(section: str) -> bool:
 
 def extract_package_info(package_section: str) -> dict[str, Any]:
     """Extract package name and versions from a package section."""
-    package_name = package_section.split("\n")[0].strip()
+    package_name = package_section.split("\n", maxsplit=1)[0].strip()
     versions_match = re.search(r"Compatible versions:\s*((?:\d+\.\d+\.\d+\s*)+)", package_section)
     versions = versions_match.group(1).split() if versions_match else []
-    return {"name": package_name, "versions": versions if versions else None}
+    return {"name": package_name, "versions": versions or None}
 
 
 def extract_compatible_packages_from_section(section: str) -> list[dict[str, Any]]:
@@ -80,7 +82,7 @@ def parse_single_section(section: str) -> dict[str, Any]:
     return {
         "name": name,
         "description": description,
-        "compatiblePackages": compatible_packages if compatible_packages else None,
+        "compatiblePackages": compatible_packages or None,
         "use": enabled,
         "options": options,
     }
@@ -101,6 +103,7 @@ def parse_text_to_json(text: str) -> list[dict[Any, Any]]:
 def convert_command_output_to_json(
     jar_file_name: str,
     patches_file: str,
+    cli_lp_args: dict[str, str] | None = None,
 ) -> list[dict[Any, Any]]:
     """
     Runs the ReVanced CLI command, processes the output, and saves it as a sorted JSON file.
@@ -109,7 +112,23 @@ def convert_command_output_to_json(
         jar_file_name (str): Name or path of the JAR file to run.
         patches_file (str): The patches file name or path to pass to the command.
     """
-    command = ["java", "-jar", jar_file_name, "list-patches", "-ipuvo", patches_file]
+    # We start from defaults and then overlay resolved per-app profile/override values.
+    list_patches_args = dict(DEFAULT_LIST_PATCHES_ARGS)
+    if cli_lp_args:
+        list_patches_args.update(cli_lp_args)
+
+    # We construct the command from the configurable map to support multiple CLI syntaxes.
+    command = ["java", "-jar", jar_file_name, list_patches_args["CMD"]]
+    # These toggles reproduce existing behavior and remain configurable for future CLI changes.
+    for key in ("INDEX", "PACKAGES", "UNIVERSAL", "VERSIONS", "OPTIONS", "DESCRIPTIONS"):
+        append_cli_argument(command, list_patches_args.get(key, ""))
+    # This optional flag slot is preserved for advanced users who embed a fixed filter in the template.
+    append_cli_argument(command, list_patches_args.get("FILTER_PACKAGE_NAME", ""))
+    # Patch bundle argument supports positional, split, or `--flag=value` formatting styles.
+    append_cli_argument(command, list_patches_args["PATCHES"], patches_file)
+    # Some CLI families require a companion flag per patches file group (e.g., v6 `-b` bypass verification).
+    append_cli_argument(command, list_patches_args.get("PATCHES_POST", ""))
+
     output = run_command_and_capture_output(command)
 
     parsed_data = parse_text_to_json(output)
