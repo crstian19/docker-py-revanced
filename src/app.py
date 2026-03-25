@@ -202,6 +202,10 @@ class APP(object):
             tag, url = Github.patch_resource(url, assets_filter, config)
             if tag.startswith("tags/"):
                 tag = tag.split("/")[-1]
+        elif url.startswith("https://gitlab.com"):
+            from src.downloader.gitlab import GitLab  # noqa: PLC0415
+
+            tag, url = GitLab.patch_resource(url, assets_filter, config)
         elif url.startswith("local://"):
             return tag, url.split("/")[-1]
         if not file_name:
