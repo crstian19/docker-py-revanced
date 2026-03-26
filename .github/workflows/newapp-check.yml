@@ -54,7 +54,7 @@ jobs:
 
 <<<<<<< HEAD
       - name: Update or Create Revanced Status Issue
-        uses: actions/github-script@v7.0.1
+        uses: actions/github-script@v7.1.0
         with:
           script: |
             const issueTitle = 'Revanced apps Status';
